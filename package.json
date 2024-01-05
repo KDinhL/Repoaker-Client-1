@@ -16,7 +16,6 @@
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.15.0",
-    "react-scripts": "^5.0.1",
     "react-time-picker": "^6.5.0",
     "recharts": "^2.8.0",
     "sass": "^1.66.1",
@@ -46,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "react-scripts": "^5.0.1"
   }
 }
