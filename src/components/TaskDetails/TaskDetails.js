@@ -7,7 +7,7 @@ import { urlTaskById } from "../../utils/api-utils";
 export default function TaskDetails() {
   const { taskId } = useParams();
   const [task, setTask] = useState(null);
-
+// eslint-disable-next-line no-unused-vars
   useEffect(() => {
     fetchTask(taskId);
   }, [taskId]);

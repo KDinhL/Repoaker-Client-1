@@ -7,7 +7,8 @@ import Modal from "react-modal";
 
 function DeleteTask({ taskId, onDelete }) {
   const [showConfirmation, setShowConfirmation] = useState(false);
-
+  
+// eslint-disable-next-line no-unused-vars
   const handleDelete = () => {
     axios
       .delete(urlTaskById(taskId))

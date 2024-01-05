@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import User from "../../assets/images/user.png";
 import { urlAllProjects } from "../../utils/api-utils";
 import "./MainPage.scss";
+// eslint-disable-next-line no-unused-vars
 import Calendar from "../../components/Calendar/Calendar";
 
 export default function MainPage() {
@@ -11,7 +12,9 @@ export default function MainPage() {
     const [projects, setProjects] = useState([]);
     const [selectedProjectId, setSelectedProjectId] = useState("");
     const navigate = useNavigate();
+    // eslint-disable-next-line no-unused-vars
     const [error, setError] = useState(false);
+    // eslint-disable-next-line no-unused-vars
     const [displayAllProjects, setDisplayAllProjects] = useState(false);
 
     useEffect(() => {

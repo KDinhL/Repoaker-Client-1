@@ -48,6 +48,7 @@ function Calendar() {
         selectedTime.setMinutes(parseInt(selectedMinute, 10));
   
         // Format the time as HH:MM AM/PM
+        // eslint-disable-next-line no-unused-vars
         const formattedTime = selectedTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   
         // Calculate the task duration in days

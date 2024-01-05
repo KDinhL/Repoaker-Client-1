@@ -61,6 +61,7 @@ const Login = ({ history }) => {
                 setSignupData({ ...signupData, error: 'Passwords do not match.' });
             } else {
                 // Send signup data to the server
+                // eslint-disable-next-line no-unused-vars
                 const response = await axios.post(urlSignUp(), {
                     username: newUsername,
                     password: newPassword,

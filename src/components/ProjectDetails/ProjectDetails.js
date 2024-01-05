@@ -18,10 +18,11 @@ export default function ProjectDetails() {
     return remainingDays;
   };
 
+// src/components/ProjectDetails/ProjectDetails.js
   useEffect(() => {
     fetchProjectData();
     fetchProjectTasks();
-  }, [projectId]);
+  }, [projectId, fetchProjectData, fetchProjectTasks]);
 
   const fetchProjectData = async () => {
     try {
@@ -41,6 +42,7 @@ export default function ProjectDetails() {
     }
   };
 
+// src/components/ProjectDetails/ProjectDetails.js
   const COLORS = ["#158463", "#BDC5D5"];
   const RADIAN = Math.PI / 180;
 
@@ -83,7 +85,7 @@ export default function ProjectDetails() {
     );
   };
 
-
+// eslint-disable-next-line no-unused-vars
   const renderCustomPieLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -110,7 +112,8 @@ export default function ProjectDetails() {
       task_name: task.task_name,
       task_status_percentage: task.task_status_percentage
     }));
-
+    
+// eslint-disable-next-line no-unused-vars
     const isAnyTaskInProcessOrDrop = tasks.some(task => task.task_status === "in-process" || task.task_status === "drop");
 
     const supportingColor = "#158463"; // Define the supporting color directly here
