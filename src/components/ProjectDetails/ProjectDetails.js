@@ -34,18 +34,18 @@ export default function ProjectDetails() {
     return remainingDays;
   };
 
-  // src/components/ProjectDetails/ProjectDetails.js
-  useEffect(() => {
-    // Move function calls inside the useEffect callback
-    fetchProjectData();
-    fetchProjectTasks();
+// src/components/ProjectDetails/ProjectDetails.js
+useEffect(() => {
+  // Move function calls inside the useEffect callback
+  fetchProjectData();
+  fetchProjectTasks();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [projectId]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [projectId]);
 
+  
 
-
-  // src/components/ProjectDetails/ProjectDetails.js
+// src/components/ProjectDetails/ProjectDetails.js
   // const COLORS = ["#158463", "#BDC5D5"];
   const RADIAN = Math.PI / 180;
 
@@ -88,7 +88,7 @@ export default function ProjectDetails() {
     );
   };
 
-  // eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
   const renderCustomPieLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -116,7 +116,7 @@ export default function ProjectDetails() {
       task_status_percentage: task.task_status_percentage
     }));
 
-    // eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
     const isAnyTaskInProcessOrDrop = tasks.some(task => task.task_status === "in-process" || task.task_status === "drop");
 
     const supportingColor = "#158463"; // Define the supporting color directly here
@@ -165,13 +165,13 @@ export default function ProjectDetails() {
       <div className="ProjectDetails__tasks">
         <h3>Projects Details</h3>
         <p>
-          {tasks.map(task => (
-            <p key={task.id}>
-              <a href="#" tabIndex={0}>{task.task_name}</a>
-              <p>Start Date: {task.task_start_date} | Deadline: {task.task_deadline}</p>
-            </p>
-          ))}
-        </p>
+        {tasks.map(task => (
+          <div key={task.id}>
+            <button>{task.task_name}</button>
+            <p>Start Date: {task.task_start_date} | Deadline: {task.task_deadline}</p>
+          </div>
+        ))}
+      </p>
       </div>
     </div>
   );
