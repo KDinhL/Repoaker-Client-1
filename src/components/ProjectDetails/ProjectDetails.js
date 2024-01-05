@@ -9,21 +9,6 @@ export default function ProjectDetails() {
   const { projectId } = useParams();
   const [project, setProject] = useState(null);
   const [tasks, setTasks] = useState([]);
-
-  const calculateRemainingDays = (deadline) => {
-    const currentDate = new Date();
-    const deadlineDate = new Date(deadline);
-    const timeDifference = deadlineDate.getTime() - currentDate.getTime();
-    const remainingDays = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-    return remainingDays;
-  };
-
-// src/components/ProjectDetails/ProjectDetails.js
-  useEffect(() => {
-    fetchProjectData();
-    fetchProjectTasks();
-  }, [projectId, fetchProjectData, fetchProjectTasks]);
-
   const fetchProjectData = async () => {
     try {
       const response = await axios.get(urlProjectById(projectId));
@@ -41,9 +26,27 @@ export default function ProjectDetails() {
       console.error("Error fetching project tasks:", error);
     }
   };
+  const calculateRemainingDays = (deadline) => {
+    const currentDate = new Date();
+    const deadlineDate = new Date(deadline);
+    const timeDifference = deadlineDate.getTime() - currentDate.getTime();
+    const remainingDays = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+    return remainingDays;
+  };
 
-// src/components/ProjectDetails/ProjectDetails.js
-  const COLORS = ["#158463", "#BDC5D5"];
+  // src/components/ProjectDetails/ProjectDetails.js
+  useEffect(() => {
+    // Move function calls inside the useEffect callback
+    fetchProjectData();
+    fetchProjectTasks();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projectId]);
+
+
+
+  // src/components/ProjectDetails/ProjectDetails.js
+  // const COLORS = ["#158463", "#BDC5D5"];
   const RADIAN = Math.PI / 180;
 
   const renderPieChart = () => {
@@ -85,7 +88,7 @@ export default function ProjectDetails() {
     );
   };
 
-// eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   const renderCustomPieLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -112,8 +115,8 @@ export default function ProjectDetails() {
       task_name: task.task_name,
       task_status_percentage: task.task_status_percentage
     }));
-    
-// eslint-disable-next-line no-unused-vars
+
+    // eslint-disable-next-line no-unused-vars
     const isAnyTaskInProcessOrDrop = tasks.some(task => task.task_status === "in-process" || task.task_status === "drop");
 
     const supportingColor = "#158463"; // Define the supporting color directly here
@@ -164,7 +167,7 @@ export default function ProjectDetails() {
         <p>
           {tasks.map(task => (
             <p key={task.id}>
-              <a>{task.task_name}</a>
+              <a href="#" tabIndex={0}>{task.task_name}</a>
               <p>Start Date: {task.task_start_date} | Deadline: {task.task_deadline}</p>
             </p>
           ))}

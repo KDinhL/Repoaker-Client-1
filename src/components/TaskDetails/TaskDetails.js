@@ -9,7 +9,9 @@ export default function TaskDetails() {
   const [task, setTask] = useState(null);
 // eslint-disable-next-line no-unused-vars
   useEffect(() => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     fetchTask(taskId);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskId]);
 
   const fetchTask = async () => {
