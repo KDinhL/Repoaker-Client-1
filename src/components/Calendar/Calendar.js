@@ -15,8 +15,6 @@ function Calendar() {
   const [selectedMinute, setSelectedMinute] = useState('00');
   const [selectedAmPm, setSelectedAmPm] = useState('AM');
   const [calendarEvents, setCalendarEvents] = useState([]);
-  const selectedTaskId = parseInt(selectedTask, 10);
-  const selectedTaskObject = tasks.find((task) => task.task_id === selectedTaskId);
   const openModal = (date) => {
     setSelectedDate(date);
     setIsModalOpen(true);

@@ -11,15 +11,9 @@ const Login = ({ history }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const [isAboutAppModalOpen, setAboutAppModalOpen] = useState(false);
+ 
 
-    const openAboutAppModal = () => {
-        setAboutAppModalOpen(true);
-    };
-
-    const closeAboutAppModal = () => {
-        setAboutAppModalOpen(false);
-    };
+ 
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
@@ -73,8 +67,6 @@ const Login = ({ history }) => {
                     email: email,
                 });
 
-                // Assuming the server responds with the newly created user data
-                const newUser = response.data.user;
 
                 // Close the signup modal
                 setShowSignUpModal(false);
